@@ -1,0 +1,12 @@
+import express from "express";
+import { signup } from "../controller/user.js";
+import { Signin } from "../controller/user.js";
+import { Signout } from "../controller/user.js";
+import { getUser } from "../controller/user.js";
+import secureroute from "../middleware/secureroute.js";
+const router = express.Router();
+router.post("/signup", signup);
+router.post("/signin", Signin);
+router.post("/signout", Signout);
+router.get("/getUser", secureroute,getUser);
+export default router;
